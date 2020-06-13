@@ -10,13 +10,13 @@ import com.michifinder.listeners.RecycleGatoListener
 import com.michifinder.modelo.Gato
 
 class ListadoGatos : AppCompatActivity() {
-    private lateinit var rvLista : RecyclerView
-    private lateinit var adapter : GatoAdapter
+    /*private lateinit var rvLista : RecyclerView
+    private lateinit var adapter : GatoAdapter*/
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        rvLista = findViewById(R.id.rvListaGatos)
+        /*rvLista = findViewById(R.id.rvListaGatos)
         adapter = GatoAdapter(getGatos(),R.layout.recyclerview_gatos,this,
             object: RecycleGatoListener {
                 override fun onClick(gato: Gato, position: Int){
@@ -26,9 +26,9 @@ class ListadoGatos : AppCompatActivity() {
                 }
             })
         rvLista.layoutManager = LinearLayoutManager(applicationContext)
-        rvLista.adapter = adapter
+        rvLista.adapter = adapter*/
     }
-    private fun getGatos():ArrayList<Gato>{
+    /*private fun getGatos():ArrayList<Gato>{
         var lista : ArrayList<Gato> = ArrayList()
         lista.add(Gato("Pelusso","Bengala","Gato parecido a un tigre",R.mipmap.gatobengala))
         lista.add(Gato("Michifuz","British Shothair","Gato muy cariñoso",R.mipmap.gatobritishshorthair))
@@ -40,5 +40,5 @@ class ListadoGatos : AppCompatActivity() {
         lista.add(Gato("Arturo","Sphynx","Gato sin pelo pero jugueton",R.mipmap.gatosphynx))
 
         return lista
-    }
+    }*/
 }
