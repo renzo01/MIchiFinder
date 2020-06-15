@@ -2,7 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group>
         <item android:id="@+id/nav_home" android:title="Inicio" android:icon="@drawable/ic_inicio_cat"/>
-
     </group>
     <item android:title="Configuración del usuario">
         <menu>

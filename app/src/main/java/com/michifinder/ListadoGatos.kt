@@ -2,17 +2,26 @@ package com.michifinder
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Toast
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.widget.Toolbar
+
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.navigation.NavigationView
 import com.michifinder.adapters.GatoAdapter
 import com.michifinder.listeners.RecycleGatoListener
 import com.michifinder.modelo.Gato
+import kotlinx.android.synthetic.main.activity_listado_gatos.*
 
-class ListadoGatos : AppCompatActivity() {
+class ListadoGatos : AppCompatActivity() , NavigationView.OnNavigationItemSelectedListener{
     /*private lateinit var rvLista : RecyclerView
     private lateinit var adapter : GatoAdapter*/
-
+    private lateinit var drawerListadoGatos : DrawerLayout;
+    private lateinit var toolbar: Toolbar;
+    private lateinit var  navPrincipal : NavigationView;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -27,6 +36,23 @@ class ListadoGatos : AppCompatActivity() {
             })
         rvLista.layoutManager = LinearLayoutManager(applicationContext)
         rvLista.adapter = adapter*/
+        drawerListadoGatos = findViewById(R.id.dListadoGatos);
+        navPrincipal = findViewById(R.id.nvMenu);
+        toolbar = findViewById(R.id.toolbar);
+        //Configuracion del boton de hambugesa para le toolbar
+        setSupportActionBar(toolbar);
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true);
+        supportActionBar!!.setHomeAsUpIndicator(R.drawable.ic_menu_hamburger);
+
+        var toggle = ActionBarDrawerToggle(this, drawerListadoGatos, toolbar, R.string.openNavigation,R.string.closeNavigation)
+        toggle.isDrawerIndicatorEnabled = true;
+        drawerListadoGatos.addDrawerListener(toggle)
+        toggle.syncState()
+        //nvMenu.setNavigationItemSelectedListener {this}
+    }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        TODO("Not yet implemented")
     }
     /*private fun getGatos():ArrayList<Gato>{
         var lista : ArrayList<Gato> = ArrayList()
