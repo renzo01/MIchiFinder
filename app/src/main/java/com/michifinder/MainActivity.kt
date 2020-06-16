@@ -1,18 +1,24 @@
 package com.michifinder
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.michifinder.adapters.GatoAdapter
-import com.michifinder.listeners.RecycleGatoListener
-import com.michifinder.modelo.Gato
+import android.widget.Button
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val btn_ingresar = findViewById<Button>(R.id.btn_ingresar);
+
+        btn_ingresar.setOnClickListener {
+            val intent = Intent(this, login_usuario::class.java);
+
+            startActivity(intent)
+        }
+
+
     }
 }

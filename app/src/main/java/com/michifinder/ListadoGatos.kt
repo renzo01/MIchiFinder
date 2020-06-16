@@ -3,18 +3,11 @@ package com.michifinder
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.Toolbar
 
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.navigation.NavigationView
-import com.michifinder.adapters.GatoAdapter
-import com.michifinder.listeners.RecycleGatoListener
-import com.michifinder.modelo.Gato
-import kotlinx.android.synthetic.main.activity_listado_gatos.*
 
 class ListadoGatos : AppCompatActivity() , NavigationView.OnNavigationItemSelectedListener{
     /*private lateinit var rvLista : RecyclerView

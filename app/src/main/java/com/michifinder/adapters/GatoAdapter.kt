@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.michifinder.listeners.RecycleGatoListener
-import com.michifinder.modelo.Gato
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.recyclerview_gatos.view.*
 
