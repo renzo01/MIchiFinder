@@ -1,5 +1,6 @@
 package com.michifinder
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
@@ -8,6 +9,7 @@ import androidx.appcompat.widget.Toolbar
 
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
+import com.michifinder.storage.SharedPrefManager
 
 class ListadoGatos : AppCompatActivity() , NavigationView.OnNavigationItemSelectedListener{
     /*private lateinit var rvLista : RecyclerView
@@ -60,4 +62,15 @@ class ListadoGatos : AppCompatActivity() , NavigationView.OnNavigationItemSelect
 
         return lista
     }*/
+
+    override fun onStart() {
+        super.onStart()
+        if (!SharedPrefManager.getInstance(this).isLoggedIn) {
+            val intent = Intent(applicationContext, MainActivity::class.java)
+            intent.flags =
+                Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+
+            startActivity(intent)
+        }
+    }
 }
