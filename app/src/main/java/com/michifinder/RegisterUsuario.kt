@@ -21,7 +21,7 @@ class RegisterUsuario : AppCompatActivity() {
         setContentView(R.layout.activity_register_usuario)
         var alreadyCount = findViewById<TextView>(R.id.tv_already_count);
         var nombreCompleto = findViewById<EditText>(R.id.etNombreCompleto)
-        var direccion = findViewById<EditText>(R.id.etDireccion)
+        var direccion = findViewById<EditText>(R.id.tvAddress)
         var distrito = findViewById<Spinner>(R.id.spDistrito)
         var fechaNacimiento = findViewById<TextView>(R.id.tv_fecha_nacimiento_usuario);
         var correo = findViewById<EditText>(R.id.tv_correo)
@@ -51,8 +51,8 @@ class RegisterUsuario : AppCompatActivity() {
                 return@setOnClickListener
             }
             if (direccion.text.toString().trim().isEmpty()) {
-                etDireccion.error = "Porfavor ingrese su nombre"
-                etDireccion.requestFocus()
+                tvAddress.error = "Porfavor ingrese su nombre"
+                tvAddress.requestFocus()
                 return@setOnClickListener
             }
             if (distrito != null) {

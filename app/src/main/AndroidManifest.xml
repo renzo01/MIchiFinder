@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ListadoGatos"></activity>
+        <activity android:name=".AdoptarGato"></activity>
+        <activity android:name=".ListadoGatos" />
         <activity android:name=".RegisterUsuario" />
         <activity android:name=".LoginUsuario" />
         <activity android:name=".DetalleMichi" />
