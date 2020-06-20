@@ -1,11 +1,10 @@
 package com.michifinder.interfaces
 
 import com.michifinder.modelo.Gato
+import com.michifinder.modelo.LoginResponse
 import com.michifinder.modelo.Usuario
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface ApiServices {
     //Dato para los gatos
@@ -18,6 +17,10 @@ interface ApiServices {
     @GET("gato/listar/raza")
     fun obtenerPorRaza(@Body raza: Gato): Call<Gato>
 
-    @POST("/usuario/login")
-    fun loginUsuario(@Body correo: Usuario, contrasenia: Usuario): Call<Usuario>
+    @FormUrlEncoded
+    @POST("usuario/crear")
+    fun usuarioLogin(
+        @Field("correo") correo: String,
+        @Field("contrasenia") contrasenia: String
+    ) : Call<LoginResponse>
 }
