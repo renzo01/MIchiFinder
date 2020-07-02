@@ -11,13 +11,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val btn_ingresar = findViewById<Button>(R.id.btn_ingresar)
 
-        btn_ingresar.setOnClickListener{
-            val intent = Intent(this, LoginUsuario::class.java)
 
-            startActivity(intent)
-        }
+
 
 
 
