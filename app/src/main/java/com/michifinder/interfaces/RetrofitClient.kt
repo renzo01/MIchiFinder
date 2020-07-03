@@ -1,4 +1,4 @@
-package com.michifinder.API
+package com.michifinder.interfaces
 
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -15,11 +15,11 @@ object RetrofitClient {
         chain.proceed(request)
     }.build()
 
-    val instance: Api by lazy {
+    val instance: ApiServices by lazy {
         val retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create()).client(okHttpClient)
             .build()
-        retrofit.create(Api::class.java)
+        retrofit.create(ApiServices::class.java)
     }
 }

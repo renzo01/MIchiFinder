@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         val btn_ingresar = findViewById<Button>(R.id.btn_ingresar)
 
         btn_ingresar.setOnClickListener{
-            val intent = Intent(this, RegisterUsuario::class.java)
+            val intent = Intent(this, LoginUsuario::class.java)
 
             startActivity(intent)
         }

@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import com.michifinder.API.RetrofitClient
+import com.michifinder.interfaces.RetrofitClient
 import com.michifinder.modelo.DefaultResponse
 import kotlinx.android.synthetic.main.activity_register_usuario.*
 import retrofit2.Call

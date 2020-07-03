@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity android:name=".activity_listado_gatos"></activity>
+        <activity android:name=".activity_login_usuario" />
         <activity android:name=".RegisterUsuario" />
         <activity android:name=".MainActivity">
             <intent-filter>
