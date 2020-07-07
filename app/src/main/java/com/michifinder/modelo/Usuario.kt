@@ -10,20 +10,3 @@ data class Usuario(
     val correo: String?,
     val contrasenia: String?
 )
-
-/*class Usuario(
-    idUsuario: Int?,
-    nombre_completo: String?,
-    direccion: String?,
-    distrito: String?,
-    fecha_nacimiento: String?,
-    foto: String?,
-    correo: String,
-    contrasenia: String
-) {
-    init {
-
-    }
-    constructor(correo: String, contrasenia: String): this(null,null,null,null,null,null,correo,contrasenia){};
-}*/
-

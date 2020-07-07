@@ -1,47 +1,31 @@
 package com.michifinder.interfaces
 
-import com.michifinder.modelo.Gato
-import com.michifinder.modelo.responces.LoginResponse
-import com.michifinder.modelo.responces.DefaultResponse
+import android.widget.EditText
+import android.widget.Spinner
+import android.widget.TextView
+import com.michifinder.modelo.DefaultResponse
+import com.michifinder.modelo.LoginResponse
 import retrofit2.Call
-import retrofit2.http.*
+import retrofit2.http.Field
+import retrofit2.http.FormUrlEncoded
+import retrofit2.http.POST
 
 interface ApiServices {
-    //Dato para los gatos
-    @GET("gato/listar")
-    fun obtenerTodosLosGatos(): Call<List<Gato>>
-
-    @GET("gato/listar/raza")
-    fun obtenerPorID(@Body idGato: Gato): Call<Gato>
-
-    @GET("gato/listar/raza")
-    fun obtenerPorRaza(@Body raza: Gato): Call<Gato>
+    @FormUrlEncoded
+    @POST("createUser")
+    fun createUser(
+        @Field("Nombre_completo") Nombre_completo: EditText,
+        @Field("Direccion") Direccion: EditText,
+        @Field("Distrito") Distrito: Spinner,
+        @Field("Fecha_Nacimiento") Fecha_Nacimiento: TextView,
+        @Field("correo") correo: EditText,
+        @Field("contrasenia") contrasenia: EditText
+    ) : Call<DefaultResponse>
 
     @FormUrlEncoded
-    @POST("usuario/login")
+    @POST("usuario/crear")
     fun usuarioLogin(
         @Field("correo") correo: String,
         @Field("contrasenia") contrasenia: String
-    ): Call<LoginResponse>
-
-    /*
-     Nombre_completo,
-        Direccion,
-        Distrito,
-        Fecha_Nacimiento,
-        Foto,
-        correo,
-        contrasenia,
-    * */
-    @Headers("Content-type: application/json")
-    @POST("/usuario/login")
-    fun registerUsuario(
-        @Field("Nombre_completo") Nombre_completo: String,
-        @Field("Direccion") Direccion: String,
-        @Field("Distrito") Distrito: String,
-        @Field("Fecha_Nacimiento") Fecha_Nacimiento: String,
-        @Field("Foto") Foto: String,
-        @Field("correo") correo: String,
-        @Field("contrasenia") contrasenia: String
-    ): Call<DefaultResponse>
+    ) : Call<LoginResponse>
 }

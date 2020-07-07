@@ -8,8 +8,8 @@ import android.os.Bundle
 import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import com.michifinder.objects.RetrofitClient
-import com.michifinder.modelo.responces.DefaultResponse
+import com.michifinder.interfaces.RetrofitClient
+import com.michifinder.modelo.DefaultResponse
 import kotlinx.android.synthetic.main.activity_register_usuario.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -22,20 +22,19 @@ class RegisterUsuario : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register_usuario)
         var alreadyCount = findViewById<TextView>(R.id.tv_already_count);
-        var nombreCompleto = findViewById<EditText>(R.id.etNombreCompleto)
-        var direccion = findViewById<EditText>(R.id.etDireccion)
-        var distrito = findViewById<Spinner>(R.id.spDistrito)
-        var fechaNacimiento = findViewById<TextView>(R.id.tv_fecha_nacimiento_usuario);
-        var correo = findViewById<EditText>(R.id.tv_correo)
-        var contrasenia = findViewById<EditText>(R.id.etContrasenia)
-        var Registrar = findViewById<Button>(R.id.btnRegistrar)
+        val nombreCompleto = findViewById<EditText>(R.id.etNombreCompleto)
+        val direccion = findViewById<EditText>(R.id.etDireccion)
+        val distrito = findViewById<Spinner>(R.id.spDistrito)
+        val fechaNacimiento = findViewById<TextView>(R.id.tv_fecha_nacimiento_usuario);
+        val correo = findViewById<EditText>(R.id.etCorreo)
+        val contrasenia = findViewById<EditText>(R.id.etContrasenia)
+        val Registrar = findViewById<Button>(R.id.btnRegistrar)
 
-        var calendarInstance = Calendar.getInstance();
-        var anio = calendarInstance.get(Calendar.YEAR);
-        var mes = calendarInstance.get(Calendar.MONTH);
-        var day = calendarInstance.get(Calendar.DAY_OF_MONTH)
+        val calendarInstance = Calendar.getInstance();
+        val anio = calendarInstance.get(Calendar.YEAR);
+        val mes = calendarInstance.get(Calendar.MONTH);
+        val day = calendarInstance.get(Calendar.DAY_OF_MONTH)
         var saveDate = "";
-        var saveFoto = "";
         fechaNacimiento.setOnClickListener {
             var dpd = DatePickerDialog(
                 this,
@@ -77,30 +76,22 @@ class RegisterUsuario : AppCompatActivity() {
                 etContrasenia.requestFocus()
                 return@setOnClickListener
             }
-            //TODO: Hacer que obtenga la imagen y que guarde
-            RetrofitClient.instance.registerUsuario(
-                nombreCompleto.text.toString().trim(),
-                direccion.text.toString().trim(),
-                distrito.toString(),
-                saveDate,
-                saveFoto,
-                correo.text.toString().trim(),
-                contrasenia.text.toString()
-            ).enqueue(object : Callback<DefaultResponse> {
-                override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
-                    Toast.makeText(applicationContext, t.message, Toast.LENGTH_SHORT).show()
-                }
+            RetrofitClient.instance.createUser(nombreCompleto,direccion,distrito,fechaNacimiento,correo,contrasenia)
+                .enqueue(object : Callback<DefaultResponse>{
+                    override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
+                         Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
+                    }
 
-                override fun onResponse(
-                    call: Call<DefaultResponse>,
-                    response: Response<DefaultResponse>
-                ) {
-                    Toast.makeText(applicationContext, response.body()?.mensaje, Toast.LENGTH_SHORT)
-                        .show()
-                }
+                    override fun onResponse(
+                        call: Call<DefaultResponse>,
+                        response: Response<DefaultResponse>
+                    ) {
+                        Toast.makeText(applicationContext, response.body()?.mensaje, Toast.LENGTH_LONG).show()
+                    }
 
-            })
+                })
         }
+
         alreadyCount.setOnClickListener {
             var intent = Intent(this, LoginUsuario::class.java);
             startActivity(intent);
