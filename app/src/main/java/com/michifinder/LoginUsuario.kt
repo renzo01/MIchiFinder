@@ -6,15 +6,13 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import com.michifinder.interfaces.RetrofitClient
-import com.michifinder.modelo.LoginResponse
+import com.michifinder.objects.RetrofitClient
+import com.michifinder.modelo.responces.LoginResponse
 import com.michifinder.storage.SharedPrefManager
 import kotlinx.android.synthetic.main.activity_login_usuario.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class LoginUsuario : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

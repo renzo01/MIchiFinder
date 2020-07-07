@@ -1,6 +1,6 @@
 package com.michifinder.modelo
 
-class Gato(
+data class Gato(
     var idGato: Int,
     var nombre: String,
     var raza: String,
