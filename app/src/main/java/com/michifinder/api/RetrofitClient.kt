@@ -1,4 +1,4 @@
-package com.michifinder.interfaces
+package com.michifinder.api
 
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitClient {
 
-    private const val BASE_URL = "http://192.168.1.107:3001/";
+    private const val BASE_URL = "http://192.168.1.9:3001/";
 
     private val okHttpClient = OkHttpClient.Builder().addInterceptor { chain ->
         val original = chain.request()

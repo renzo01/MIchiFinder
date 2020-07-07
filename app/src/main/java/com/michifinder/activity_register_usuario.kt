@@ -8,7 +8,7 @@ import android.os.Bundle
 import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import com.michifinder.interfaces.RetrofitClient
+import com.michifinder.api.RetrofitClient
 import com.michifinder.modelo.DefaultResponse
 import kotlinx.android.synthetic.main.activity_register_usuario.*
 import retrofit2.Call
@@ -29,7 +29,7 @@ class RegisterUsuario : AppCompatActivity() {
         val correo = findViewById<EditText>(R.id.etCorreo)
         val contrasenia = findViewById<EditText>(R.id.etContrasenia)
         val Registrar = findViewById<Button>(R.id.btnRegistrar)
-
+        val foto:String  = "Aqui deberia ir la imagen"
         val calendarInstance = Calendar.getInstance();
         val anio = calendarInstance.get(Calendar.YEAR);
         val mes = calendarInstance.get(Calendar.MONTH);
@@ -57,10 +57,6 @@ class RegisterUsuario : AppCompatActivity() {
                 etDireccion.requestFocus()
                 return@setOnClickListener
             }
-            if (distrito === null) {
-                spDistrito.requestFocus()
-                return@setOnClickListener
-            }
             if (fechaNacimiento.text.toString().trim().isEmpty()) {
                 tv_fecha_nacimiento_usuario.error = "Porfavor ingrese su nombre"
                 tv_fecha_nacimiento_usuario.requestFocus()
@@ -76,17 +72,28 @@ class RegisterUsuario : AppCompatActivity() {
                 etContrasenia.requestFocus()
                 return@setOnClickListener
             }
-            RetrofitClient.instance.createUser(nombreCompleto,direccion,distrito,fechaNacimiento,correo,contrasenia)
-                .enqueue(object : Callback<DefaultResponse>{
+            RetrofitClient.instance.createUser(
+                nombreCompleto.text.toString(),
+                direccion.text.toString(),
+                distrito.selectedItem.toString(),
+                fechaNacimiento.text.toString(),
+                foto,
+                correo.text.toString(),
+                contrasenia.text.toString()
+            )
+                .enqueue(object : Callback<DefaultResponse> {
                     override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
-                         Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
+                        Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
                     }
-
                     override fun onResponse(
                         call: Call<DefaultResponse>,
                         response: Response<DefaultResponse>
                     ) {
-                        Toast.makeText(applicationContext, response.body()?.mensaje, Toast.LENGTH_LONG).show()
+                        Toast.makeText(
+                            applicationContext,
+                            "Se ha registrado correctamente",
+                            Toast.LENGTH_LONG
+                        ).show()
                     }
 
                 })

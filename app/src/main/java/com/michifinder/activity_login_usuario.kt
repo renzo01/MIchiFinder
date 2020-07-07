@@ -6,7 +6,8 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import com.michifinder.objects.RetrofitClient
+import com.michifinder.api.RetrofitClient
+//import com.michifinder.objects.RetrofitClient
 import com.michifinder.modelo.responces.LoginResponse
 import com.michifinder.storage.SharedPrefManager
 import kotlinx.android.synthetic.main.activity_login_usuario.*
@@ -39,7 +40,7 @@ class LoginUsuario : AppCompatActivity() {
                 return@setOnClickListener
             }
             if (contrasenia.isEmpty()) {
-                tv_contrasenia.error = "Coloca un correo"
+                tv_contrasenia.error = "Coloca una contraseña"
                 tv_contrasenia.requestFocus();
                 return@setOnClickListener
             }
@@ -53,30 +54,47 @@ class LoginUsuario : AppCompatActivity() {
                         call: Call<LoginResponse>,
                         response: Response<LoginResponse>
                     ) {
-                        if (response.body()?.ok == true) {
-                            SharedPrefManager.getInstance(applicationContext)
-                                .guardarUsuario(response.body()?.result!!)
-
-                            val intent = Intent(applicationContext, ListaGatos::class.java)
-                            intent.flags =
-                                Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-
-                            startActivity(intent)
-
-                        } else {
-                            Toast.makeText(
-                                applicationContext,
-                                "No se pudo ingresar!!!",
-                                Toast.LENGTH_LONG
-                            ).show()
-                        }
+                        Toast.makeText(
+                            applicationContext,
+                            "Los datos funcionan",
+                            Toast.LENGTH_LONG
+                        ).show()
                     }
                 })
+            /* RetrofitClient.instance.usuarioLogin(correo, contrasenia)
+                 .enqueue(object : Callback<LoginResponse> {
+                     override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+                         Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
+                     }
+
+                     override fun onResponse(
+                         call: Call<LoginResponse>,
+                         response: Response<LoginResponse>
+                     ) {
+                         if (response.body()?.ok == true) {
+                             SharedPrefManager.getInstance(applicationContext)
+                                 .guardarUsuario(response.body()?.result!!)
+
+                             val intent = Intent(applicationContext, ListaGatos::class.java)
+                             intent.flags =
+                                 Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+
+                             startActivity(intent)
+
+                         } else {
+                             Toast.makeText(
+                                 applicationContext,
+                                 "No se pudo ingresar!!!",
+                                 Toast.LENGTH_LONG
+                             ).show()
+                         }
+                     }
+                 })*/
         }
 
     }
 
-    override fun onStart() {
+    /*override fun onStart() {
         super.onStart()
         if (SharedPrefManager.getInstance(this).isLoggedIn) {
             val intent = Intent(applicationContext, ListadoGatos::class.java)
@@ -85,5 +103,5 @@ class LoginUsuario : AppCompatActivity() {
 
             startActivity(intent)
         }
-    }
+    }*/
 }
