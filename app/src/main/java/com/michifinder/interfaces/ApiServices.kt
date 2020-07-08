@@ -27,5 +27,5 @@ interface ApiServices {
     fun usuarioLogin(
         @Field("correo") correo: String,
         @Field("contrasenia") contrasenia: String
-    ) : Call<LoginResponse>
+    ) : Call<DefaultResponse    >
 }
