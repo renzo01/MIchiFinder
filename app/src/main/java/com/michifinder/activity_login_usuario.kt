@@ -44,6 +44,7 @@ class LoginUsuario : AppCompatActivity() {
                 tv_contrasenia.requestFocus();
                 return@setOnClickListener
             }
+            var intent = Intent(this, ListadoGatos::class.java)
             RetrofitClient.instance.usuarioLogin(correo, contrasenia)
                 .enqueue(object : Callback<LoginResponse> {
                     override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
@@ -59,8 +60,11 @@ class LoginUsuario : AppCompatActivity() {
                             "Los datos funcionan",
                             Toast.LENGTH_LONG
                         ).show()
+
+                        startActivity(intent)
                     }
                 })
+
             /* RetrofitClient.instance.usuarioLogin(correo, contrasenia)
                  .enqueue(object : Callback<LoginResponse> {
                      override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
