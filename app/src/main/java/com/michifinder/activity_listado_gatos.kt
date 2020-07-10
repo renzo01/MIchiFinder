@@ -1,5 +1,6 @@
 package com.michifinder
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
@@ -12,6 +13,14 @@ class ListadoGatos : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_listado_gatos)
+        val listadoGatitos = listadoGatitos()
+        val ActualizarUsuario = ActualizarUsuario()
+        val AdopcinesHechas = AdopcinesHechas()
+        val EliminarCuenta = EliminarCuenta()
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.fPrincipal, listadoGatitos)
+            commit()
+        }
 
         toggle = ActionBarDrawerToggle(
             this,
@@ -24,15 +33,42 @@ class ListadoGatos : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         nvMenu.setNavigationItemSelectedListener {
-            when(it.itemId){
-                R.id.nav_home -> Toast.makeText(applicationContext,"Opcion 1 clickeado", Toast.LENGTH_LONG).show()
+            when (it.itemId) {
+                R.id.nav_home -> {
+                    supportFragmentManager.beginTransaction().apply {
+                        replace(R.id.fPrincipal, listadoGatitos)
+                        commit()
+                    }
+                }
+                R.id.nav_salir -> {
+                    var intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                }
+                R.id.nav_actualizar -> {
+                    supportFragmentManager.beginTransaction().apply {
+                        replace(R.id.fPrincipal, ActualizarUsuario)
+                        commit()
+                    }
+                }
+                R.id.nav_adopciones -> {
+                    supportFragmentManager.beginTransaction().apply {
+                        replace(R.id.fPrincipal, AdopcinesHechas)
+                        commit()
+                    }
+                }
+                R.id.nav_eliminar -> {
+                    supportFragmentManager.beginTransaction().apply {
+                        replace(R.id.fPrincipal, EliminarCuenta)
+                        commit()
+                    }
+                }
             }
             true
         }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(toggle.onOptionsItemSelected(item)){
+        if (toggle.onOptionsItemSelected(item)) {
             return true
         }
         return super.onOptionsItemSelected(item)

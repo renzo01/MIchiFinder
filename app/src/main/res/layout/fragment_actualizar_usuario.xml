@@ -4,16 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterUsuario">
-
+    android:id="@+id/fActualizar"
+    tools:context=".ActualizarUsuario">
 
     <TextView
         android:id="@+id/textView9"
-        android:layout_width="165dp"
+        android:layout_width="256dp"
         android:layout_height="44dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="30dp"
-        android:text="Registro Usuario"
+        android:layout_marginTop="16dp"
+        android:text="Actualizar Datos"
         android:textColor="#333131"
         android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,17 +61,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
 
-    <TextView
-        android:id="@+id/tv_already_count"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:text="Ya tienes una cuenta? toca Aquí"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnRegistrar" />
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout2"
         android:layout_width="0dp"
@@ -103,7 +91,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="15dp"
         android:background="#2196F3"
-        android:text="Registrar"
+        android:text="Actualizar"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -159,5 +147,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
