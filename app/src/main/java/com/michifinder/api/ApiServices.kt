@@ -31,8 +31,7 @@ interface ApiServices {
         @Field("correo") correo: String,
         @Field("contrasenia") contrasenia: String
     ): Call<LoginResponse>
-
-    @FormUrlEncoded
+    
     @GET("gato/listar")
     fun listadoGatos(): Call<ListadoGatosResponse>
 }
