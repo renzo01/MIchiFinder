@@ -1,5 +1,6 @@
 package com.michifinder
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,6 +8,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import com.michifinder.api.RetrofitClient
+import com.michifinder.modelo.Usuario
 //import com.michifinder.objects.RetrofitClient
 import com.michifinder.modelo.responces.LoginResponse
 import com.michifinder.storage.SharedPrefManager
@@ -19,6 +21,8 @@ class LoginUsuario : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_usuario)
+        val sharedPref = getSharedPreferences("usuario", Context.MODE_PRIVATE)
+        val editor = sharedPref.edit()
 
         var tv_register_usuario = findViewById<TextView>(R.id.tv_register_usuario);
         var btn_ingresar_login = findViewById<Button>(R.id.btn_ingresar_login);
@@ -55,9 +59,16 @@ class LoginUsuario : AppCompatActivity() {
                         call: Call<LoginResponse>,
                         response: Response<LoginResponse>
                     ) {
+                        val usuarioResp = response.body()
+                        val usuario: Usuario = usuarioResp!!.usuario
+                        editor.apply{
+                            putInt("IdUsuario",usuario.IdUsuarios)
+                            apply()
+                        }
+
                         Toast.makeText(
                             applicationContext,
-                            "Los datos funcionan",
+                            "Bienvenido ${usuario.Nombre_Completo}",
                             Toast.LENGTH_LONG
                         ).show()
 

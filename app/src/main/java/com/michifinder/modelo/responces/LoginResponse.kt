@@ -5,5 +5,5 @@ import com.michifinder.modelo.Usuario
 
 data class LoginResponse(
     @SerializedName("ok") val ok: Boolean?,
-    @SerializedName("usuario") val usuario: Usuario?
+    @SerializedName("usuario") val usuario: Usuario
 )

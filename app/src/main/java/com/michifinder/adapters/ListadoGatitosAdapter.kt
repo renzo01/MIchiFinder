@@ -1,11 +1,13 @@
 package com.michifinder.adapters
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.recyclerview.widget.RecyclerView
+import com.michifinder.DetalleGato
 import com.michifinder.R
 import com.michifinder.modelo.Gato
 import kotlinx.android.synthetic.main.listado_gatitos_content.view.*
@@ -38,6 +40,38 @@ class ListadoGatitosAdapter(val context: Context, val layout: Int, val gatito: L
             tvNombreGatito.text = gatito.nombre
             tvEdadGatito.text = gatito.edad
             tvRazaGatito.text = gatito.raza
+            itemView.setOnClickListener {
+                itemView.context.startActivity(
+                    Intent(itemView.context, DetalleGato::class.java).putExtra(
+                        "IdGato",
+                        gatito.idGato
+                    ).putExtra(
+                        "Nombre",
+                        gatito.nombre
+                    ).putExtra(
+                        "Raza",
+                        gatito.raza
+                    ).putExtra(
+                        "Edad",
+                        gatito.edad
+                    ).putExtra(
+                        "Descripcion",
+                        gatito.descripcion
+                    ).putExtra(
+                        "IdMedicamentos",
+                        gatito.idMedicamentos
+                    ).putExtra(
+                        "Sexo",
+                        gatito.sexo
+                    ).putExtra(
+                        "Estirilizado",
+                        gatito.estirilizado
+                    ).putExtra(
+                        "Vacunado",
+                        gatito.vacunado
+                    )
+                )
+            }
         }
     }
 

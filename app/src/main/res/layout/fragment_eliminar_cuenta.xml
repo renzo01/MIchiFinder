@@ -37,7 +37,7 @@
         android:layout_marginTop="40dp"
         android:layout_marginEnd="15dp"
         android:background="#E91E1E"
-        android:text="Registrar"
+        android:text="Eliminar"
         android:textColor="#FFFFFF"
         android:textColorLink="#E82B2B"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,11 +49,21 @@
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="24dp"
         android:text="Recuerda que hay muchos gatitos que quieren conocerte....."
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.486"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnEliminar" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="194dp"
+        android:layout_height="146dp"
+        android:src="@drawable/ic_cat_house"
+        app:layout_constraintBottom_toTopOf="@+id/textView6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

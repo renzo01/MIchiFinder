@@ -14,7 +14,7 @@ data class Gato(
     @SerializedName("Descripcion")
     var descripcion: String,
     @SerializedName("IdMedicamentos")
-    var idMedicamentos: Int,
+    var idMedicamentos: String,
     @SerializedName("Sexo")
     var sexo: String,
     @SerializedName("Esterelizado")

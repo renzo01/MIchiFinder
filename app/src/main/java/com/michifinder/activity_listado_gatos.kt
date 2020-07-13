@@ -1,5 +1,6 @@
 package com.michifinder
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -13,6 +14,9 @@ class ListadoGatos : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_listado_gatos)
+        val sharedPref = getSharedPreferences("usuario", Context.MODE_PRIVATE)
+        val editor = sharedPref.edit()
+
         val listadoGatitos = listadoGatitos()
         val ActualizarUsuario = ActualizarUsuario()
         val AdopcinesHechas = AdopcinesHechas()
@@ -42,6 +46,10 @@ class ListadoGatos : AppCompatActivity() {
                 }
                 R.id.nav_salir -> {
                     var intent = Intent(this, MainActivity::class.java)
+                    editor.apply() {
+                        remove("IdUsuario")
+                        apply()
+                    }
                     startActivity(intent)
                 }
                 R.id.nav_actualizar -> {

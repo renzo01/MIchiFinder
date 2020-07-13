@@ -3,20 +3,22 @@ package com.michifinder.modelo
 import com.google.gson.annotations.SerializedName
 
 data class Usuario(
-    @SerializedName("idUsuarios")
-    val idUsuario: Int,
-    @SerializedName("Nombre_completo")
-    val nombre_completo: String?,
+    @SerializedName("IdUsuarios")
+    val IdUsuarios: Int,
+    @SerializedName("Nombre_Completo")
+    val Nombre_Completo: String?,
     @SerializedName("Direccion")
-    val direccion: String?,
+    val Direccion: String?,
     @SerializedName("Distrito")
-    val distrito: String?,
+    val Distrito: String?,
     @SerializedName("Fecha_Nacimiento")
-    val fecha_nacimiento: String?,
+    val Fecha_Nacimiento: String?,
     @SerializedName("Foto")
-    val foto: String?,
-    @SerializedName("correo")
-    val correo: String?,
-    @SerializedName("contrasenia")
-    val contrasenia: String?
+    val Foto: String?,
+    @SerializedName("Habilitado")
+    val Habilitado: Int?,
+    @SerializedName("Correo")
+    val Correo: String?,
+    @SerializedName("Contrasenia")
+    val Contrasenia: String?
 )

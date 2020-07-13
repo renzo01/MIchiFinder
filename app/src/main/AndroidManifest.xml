@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".DetalleGato"></activity>
+        <activity android:name=".RegistrarAdopcion"></activity>
+        <activity android:name=".DetalleGato" />
         <activity android:name=".ListadoGatos" />
         <activity android:name=".RegisterUsuario" />
         <activity android:name=".LoginUsuario" />

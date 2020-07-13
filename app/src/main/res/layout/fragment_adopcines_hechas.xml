@@ -43,11 +43,13 @@
         app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvAdopciones"
         android:layout_width="409dp"
         android:layout_height="376dp"
         android:layout_marginStart="1dp"
         android:layout_marginTop="1dp"
         android:layout_marginEnd="1dp"
+        tools:listitem="@layout/listado_gatitos_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

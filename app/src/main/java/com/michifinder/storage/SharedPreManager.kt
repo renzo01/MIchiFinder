@@ -23,6 +23,7 @@ class SharedPrefManager private constructor(private val mCtx: Context) {
                 sharedPreferences.getString("distrito", null),
                 sharedPreferences.getString("fecha_nacimiento", null),
                 sharedPreferences.getString("foto", null),
+                sharedPreferences.getInt("habilitado", 0),
                 sharedPreferences.getString("correo", null),
                 sharedPreferences.getString("contrasenia", null)
             )
@@ -42,14 +43,15 @@ class SharedPrefManager private constructor(private val mCtx: Context) {
         val sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
 
-        editor.putInt("idUsuario", usuario.idUsuario)
-        editor.putString("nombre_completo", usuario.nombre_completo)
-        editor.putString("direccion", usuario.direccion)
-        editor.putString("distrito", usuario.distrito)
-        editor.putString("fecha_nacimiento", usuario.fecha_nacimiento)
-        editor.putString("foto", usuario.foto)
-        editor.putString("correo", usuario.correo)
-        editor.putString("contrasenia", usuario.contrasenia)
+        editor.putInt("idUsuario", usuario.IdUsuarios)
+        editor.putString("nombre_completo", usuario.Nombre_Completo)
+        editor.putString("direccion", usuario.Direccion)
+        editor.putString("distrito", usuario.Distrito)
+        editor.putString("fecha_nacimiento", usuario.Fecha_Nacimiento)
+        editor.putString("foto", usuario.Foto)
+        usuario.Habilitado?.let { editor.putInt("habilitado", it) }
+        editor.putString("correo", usuario.Correo)
+        editor.putString("contrasenia", usuario.Contrasenia)
         editor.apply()
 
     }

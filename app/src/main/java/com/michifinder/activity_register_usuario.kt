@@ -29,7 +29,7 @@ class RegisterUsuario : AppCompatActivity() {
         val correo = findViewById<EditText>(R.id.etCorreo)
         val contrasenia = findViewById<EditText>(R.id.etContrasenia)
         val Registrar = findViewById<Button>(R.id.btnRegistrar)
-        val foto:String  = "Aqui deberia ir la imagen"
+        val foto: String = "Aqui deberia ir la imagen"
         val calendarInstance = Calendar.getInstance();
         val anio = calendarInstance.get(Calendar.YEAR);
         val mes = calendarInstance.get(Calendar.MONTH);
@@ -85,6 +85,7 @@ class RegisterUsuario : AppCompatActivity() {
                     override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
                         Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
                     }
+
                     override fun onResponse(
                         call: Call<DefaultResponse>,
                         response: Response<DefaultResponse>
