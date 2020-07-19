@@ -48,6 +48,7 @@ class LoginUsuario : AppCompatActivity() {
                 tv_contrasenia.requestFocus();
                 return@setOnClickListener
             }
+
             var intent = Intent(this, ListadoGatos::class.java)
             RetrofitClient.instance.usuarioLogin(correo, contrasenia)
                 .enqueue(object : Callback<LoginResponse> {

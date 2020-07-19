@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.michifinder.DetalleGato
 import com.michifinder.R
 import com.michifinder.modelo.Gato
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.listado_gatitos_content.view.*
 
 /*class ListadoGatitosAdapter(
@@ -40,6 +41,10 @@ class ListadoGatitosAdapter(val context: Context, val layout: Int, val gatito: L
             tvNombreGatito.text = gatito.nombre
             tvEdadGatito.text = gatito.edad
             tvRazaGatito.text = gatito.raza
+            Picasso.get()
+                .load(gatito.foto)
+                .into(ivFotoGatito)
+
             itemView.setOnClickListener {
                 itemView.context.startActivity(
                     Intent(itemView.context, DetalleGato::class.java).putExtra(
@@ -69,6 +74,9 @@ class ListadoGatitosAdapter(val context: Context, val layout: Int, val gatito: L
                     ).putExtra(
                         "Vacunado",
                         gatito.vacunado
+                    ).putExtra(
+                        "Foto",
+                        gatito.foto
                     )
                 )
             }
