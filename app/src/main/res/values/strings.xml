@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">MichiFinder</string>
+    <string name="openNavigation">Abrir Navigation</string>
+    <string name="closeNavigation">Cerrar Navigation</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ingresar">Ingresar</string>
+    <string name="deseas_saber_mas_de_nuestra_iniciativa">Deseas saber mas de nuestra iniciativa?</string>
+    <string name="michi_finder_description">Michi Finder, es una iniciativa para ayudar a las veterinarias y a los centros de rescates de animales, te permite escoger a tu gatito ideal según tus preferencias. Los gatitos pasan por un proceso médico para que puedan ser adoptados</string>
+    <string-array name="arrDistritos">
+        <item>Miraflores</item>
+        <item>Surco</item>
+        <item>Ate</item>
+    </string-array>
+    <string name="michifinder">MICHIFINDER</string>
 </resources>

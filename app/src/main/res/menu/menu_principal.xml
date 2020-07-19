@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group>
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_inicio_cat"
+            android:title="Listado de Gatitos" />
+    </group>
+    <item android:title="Configuración del usuario">
+        <menu>
+            <item
+                android:id="@+id/nav_actualizar"
+                android:title="Actualizar datos" />
+            <item
+                android:id="@+id/nav_eliminar"
+                android:title="Eliminar Perfil" />
+        </menu>
+    </item>
+    <group>
+        <item
+            android:id="@+id/nav_adopciones"
+            android:icon="@drawable/ic_nav_patita"
+            android:title="Adopciones hechas" />
+        <item
+            android:id="@+id/nav_salir"
+            android:icon="@drawable/ic_exit"
+            android:title="Salir" />
+    </group>
+</menu>
